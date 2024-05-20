@@ -10,14 +10,14 @@ class FrontController{
         Route::add('/', 
                 function(){
                     $controlador = new \Com\Daw2\Controllers\InicioController();
-                    $controlador->index();
+                    $controlador->buscarJugadores();
                 }
                 , 'get');  
                 
-        Route::add('/demo-proveedores', 
+        Route::add('/guardados', 
                 function(){
-                    $controlador = new \Com\Daw2\Controllers\InicioController();
-                    $controlador->demo();
+                    $controlador = new \Com\Daw2\Controllers\GuardadosController();
+                    $controlador->index();
                 }
                 , 'get');
                 
