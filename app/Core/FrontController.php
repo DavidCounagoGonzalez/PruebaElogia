@@ -21,6 +21,13 @@ class FrontController{
                 }
                 , 'get');
                 
+        Route::add('/guardar', 
+                function(){
+                    $controlador = new \Com\Daw2\Controllers\InicioController();
+                    $controlador->addJugadores();
+                }
+                , 'get');
+                
         Route::pathNotFound(
             function(){
                 $controller = new \Com\Daw2\Controllers\ErroresController();

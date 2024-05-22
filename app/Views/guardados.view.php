@@ -42,28 +42,30 @@
                 <table id="tabladatos" class="table table-striped">                    
                     <thead>
                         <tr>
-                            <th><a href="/proveedores?order=1">Alias</a> <i class="fas fa-sort-amount-down-alt"></i></th>
-                            <th><a href="/proveedores?order=2">Nombre Completo</a> </th>
-                            <th><a href="/proveedores?order=3">Tipo</a> </th>
-                            <th><a href="/proveedores?order=4">Continente</a> </th>
-                            <th><a href="/proveedores?order=5">Año fundación</a> </th>
-                            <th></th>
+                            <th>Nombre</th>
+                            <th>Nacionalidad</th>
+                            <th>Nacimiento</th>
+                            <th>Equipo </th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    if (count($jugadores) > 0){
+                        foreach($jugadores as $jugador){
+                            
+                    ?>
                         <tr class="">
-                            <td>CuCoMa</td>
-                            <td>Custom Comp. Mov. Martínez</td>
-                            <td>Componentes móviles</td>
-                            <td>Europa</td>
-                            <td>1992</td> 
-                            <td>                                        
-                                <a href="tel: 931506210" target="_blank" class="btn btn-success ml-1" data-toggle="tooltip" data-placement="top" title="931506210"><i class="fas fa-phone"></i></a>
-                                <a href="mailto: info@cucoma.net" target="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="info@cucoma.net"><i class="fas fa-envelope"></i></a>                                        
-                                <a href="http://cucoma.net" target="_blank" class="btn btn-light ml-1"><i class="fas fa-globe-europe"></i></a>
-                            </td>
+                            <td><?php echo $jugador['nombre'] ?? '' ?></td>
+                            <td><?php echo $jugador['nacionalidad'] ?? '' ?></td>
+                            <td><?php echo $jugador['fecha_nacimiento'] ?? '' ?></td>
+                            <td><?php echo $jugador['equipo'] ?? '' ?></td>
                         </tr>
-                    </tbody>                    
+                    
+                    <?php 
+                        }
+                    }
+                    ?>
+                    </tbody>
                 </table>
             </div>
             <div class="card-footer">
