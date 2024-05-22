@@ -13,12 +13,13 @@ class InicioController extends \Com\Daw2\Core\BaseController {
             'seccion' => '/inicio'
         );
         
-        if (!empty($_GET['jugador'])) {
-            $_SESSION['jugador'] = $_GET['jugador'];
+        if (!empty($_GET['jugador'])) { //Comprobamos que el input contenga algo
+            $_SESSION['jugador'] = $_GET['jugador']; //Guardamos la búsqueda en una sesión para poder recaragr la página tal cuál tras guardar
             $model = new \Com\Daw2\Models\ApiModel();
-            $data['jugadores'] = $model->getPlayerByName($_SESSION['jugador']);
+            $data['jugadores'] = $model->getPlayerByName($_SESSION['jugador']); //Lanzamos la función que busca en la api los jugadores.
         }
         
+        // Esto se lanzará tras un guardado mostrando el número de inserts que se han realizado
         if(isset($_SESSION['mensajeMod'])){
             $data['mensajeMod'] = $_SESSION['mensajeMod'];
             unset($_SESSION['mensajeMod']);
